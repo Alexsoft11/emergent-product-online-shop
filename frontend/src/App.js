@@ -233,7 +233,7 @@ const App = () => {
       product.title[i18n.language]?.toLowerCase().includes(searchQuery.toLowerCase()) ||
       product.description[i18n.language]?.toLowerCase().includes(searchQuery.toLowerCase());
     
-    const matchesCategory = selectedCategory === '' || product.category === selectedCategory;
+    const matchesCategory = selectedCategory === '' || selectedCategory === 'all' || product.category === selectedCategory;
     
     return matchesSearch && matchesCategory;
   });
