@@ -414,7 +414,7 @@ const App = () => {
                       <SelectValue placeholder={t('category')} />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="">{i18n.language === 'uz' ? 'Barchasi' : i18n.language === 'ru' ? 'Все' : 'All'}</SelectItem>
+                      <SelectItem value="all">{i18n.language === 'uz' ? 'Barchasi' : i18n.language === 'ru' ? 'Все' : 'All'}</SelectItem>
                       {categories.map(category => (
                         <SelectItem key={category.id} value={category.id}>
                           {category.name[i18n.language]}
