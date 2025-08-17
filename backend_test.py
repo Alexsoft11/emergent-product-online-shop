@@ -195,13 +195,8 @@ class MarketplaceAPITester:
             order_id = data['id']
             self.log_test("Create Order", True, f"Order ID: {order_id}")
             
-            # Test payment processing
-            payment_data = {
-                "order_id": order_id,
-                "payment_method": "payme"
-            }
-            
-            payment_success, payment_response = self.make_request('POST', 'payments/process', payment_data)
+            # Test payment processing (using query parameters)
+            payment_success, payment_response = self.make_request('POST', f'payments/process?order_id={order_id}&payment_method=payme')
             if payment_success and payment_response.get('status') == 'success':
                 self.log_test("Payment Processing", True, f"Payment ID: {payment_response.get('payment_id')}")
             else:
